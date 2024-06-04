@@ -11,10 +11,8 @@ To be updated
 To be updated
 
 ## Dataset
-We collect  datasets.
 The dataset was temporally split so that the test set (102 patients) consisted of scans taken after March 2016. The remaining 219 patients were randomly split into the training set (165 patients) and the validation set (62 patients).
 
-## Dataset
 ### MRI Acquisition
 - **Equipment**: 3T MRI units (Magnetom Verio or Magnetom Skyra, Siemens Healthineers) with a 32-channel head coil.
 - **Protocol**: Glioma study including DCE-MRI, pre/post-contrast enhanced MP-RAGE T1WI, axial T2WI, and axial T2-FLAIR sequences.
