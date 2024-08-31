@@ -5,7 +5,7 @@ This is an official code for "Deep Learning Enhances the Reliability of Dynamic 
 A spatiotemporal deep learning model can improve the reliability of DCE-MRI by bypassing the estimation of the AIF and providing uncertainty maps, without diagnostic performance in diffuse glioma grading.
 
 ## Model's Architecture
-![Model's architecture](./figures/Figure_2.tif)
+![Model's architecture](./figures/overview_model_architecture.jpg)
 
 1. Designed a Deterministic Temporal CNN model (1st stage) to extract physical information variations along the temporal axis.
 
@@ -13,26 +13,26 @@ A spatiotemporal deep learning model can improve the reliability of DCE-MRI by b
 
 3. Achieved high-accuracy PK parametric map transformation and provided uncertainty maps to assist radiologists in cancer diagnosis.
 
-![Visualization of Synthesis map](./figrues/Figure_3.tif)
+![Visualization of Synthesis map](./figures/figure_synthesis.png)
 
 ## Training
 1) Training 3 Channel Outputs of TCN
-`python train_tcn_3ch_fusedlabel.py`
+- `python train_tcn_3ch_fusedlabel.py`
 
 2) Training Probabilistic U-Net model
-`python `
+- `python `
 
 To be updated
 
 ## Inference
 1) Synthesize 3 channel outputs of TCN (same code with train. inference right after train.)
-`python train_tcn_3ch_fusedlabel.py`
+- `python train_tcn_3ch_fusedlabel.py`
 
 2) Synthesize Probabilistic Samples from outputs of TCN
-`python inference_tcn_prob_unet_sample.py`
+- `python inference_tcn_prob_unet_sample.py`
 
 3) Synthesize Mean, Uncertainty map
-`python inference_mean_uncertainty.py`
+- `python inference_mean_uncertainty.py`
 
 ## Dataset
 The dataset was temporally split so that the test set (102 patients) consisted of scans taken after March 2016. The remaining 219 patients were randomly split into the training set (165 patients) and the validation set (62 patients).
