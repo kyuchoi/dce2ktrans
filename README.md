@@ -4,50 +4,38 @@ This is an official code for "Deep Learning Enhances the Reliability of Dynamic 
 ## Summary
 A spatiotemporal deep learning model can improve the reliability of DCE-MRI by bypassing the estimation of the AIF and providing uncertainty maps, without diagnostic performance in diffuse glioma grading.
 
+## Model's Architecture
+![Model's architecture](./figures/overview_model_architecture.jpg)
+
+1. Designed a Deterministic Temporal CNN model (1st stage) to extract physical information variations along the temporal axis.
+
+2. Developed a Probabilistic model (2nd stage) for the spatial axis to generate mean maps and uncertainty maps for image transformation.
+
+3. Achieved high-accuracy PK parametric map transformation and provided uncertainty maps to assist radiologists in cancer diagnosis.
+
+![Visualization of Synthesis map](./figures/figure_synthesis.png)
+
 ## Training
+1) Training 3 Channel Outputs of TCN
+- `python train_tcn_3ch_fusedlabel.py`
+
+2) Training Probabilistic U-Net model
+- `python `
+
 To be updated
 
 ## Inference
-To be updated
+1) Synthesize 3 channel outputs of TCN (same code with train. inference right after train.)
+- `python train_tcn_3ch_fusedlabel.py`
+
+2) Synthesize Probabilistic Samples from outputs of TCN
+- `python inference_tcn_prob_unet_sample.py`
+
+3) Synthesize Mean, Uncertainty map
+- `python inference_mean_uncertainty.py`
 
 ## Dataset
 The dataset was temporally split so that the test set (102 patients) consisted of scans taken after March 2016. The remaining 219 patients were randomly split into the training set (165 patients) and the validation set (62 patients).
-
-### MRI Acquisition
-- **Equipment**: 3T MRI units (Magnetom Verio or Magnetom Skyra, Siemens Healthineers) with a 32-channel head coil.
-- **Protocol**: Glioma study including DCE-MRI, pre/post-contrast enhanced MP-RAGE T1WI, axial T2WI, and axial T2-FLAIR sequences.
-- **DCE-MRI Parameters**: 
-  - 3D T1-weighted spoiled gradient-echo sequence
-  - TR/TE: 2.8/1.0 msec
-  - Flip angle: 10°
-  - Matrix: 192 × 192
-  - FOV: 240 × 240 mm
-  - Section thickness: 3 mm
-  - Voxel size: 1.25 × 1.25 × 3 mm³
-  - 60 acquisitions with 4-second temporal resolution
-  - Gadobutrol administered (0.1 mmol/kg) with saline bolus
-  - Total acquisition time: 5 minutes and 8 seconds
-- **MP-RAGE Parameters**: 
-  - TR/TE: 1370–1600/1.9–2.8 msec
-  - Flip angle: 9°
-  - Matrix: 256 × 232
-  - FOV: 250 × 250 mm
-  - Section thickness: 1 mm
-- **Axial T2-WI Parameters**: 
-  - TR/TE: 5100/89 msec
-  - Flip angle: 150°
-  - Matrix: 640 × 348
-  - FOV: 199 × 220 mm
-  - Section thickness: 5 mm
-  - Number of excitations: 3
-- **Axial FLAIR Parameters**: 
-  - TR/TE: 8000–9000/90–97 msec
-  - Inversion time: 2300–2500 msec
-  - Flip angle: 130–150°
-  - Matrix: 384 × 209–278
-  - FOV: 199 × 220 mm
-  - Section thickness: 5 mm
-  - Number of excitations: 1–2
 
 ### Data Processing
 - **Conversion**: All DICOM files converted to NIfTI gzipped files.
