@@ -1,0 +1,12 @@
+# Ignore __pycache__ folders and all files within them
+__pycache__/
+
+# Ignore all .nii.gz files in the current directory and its subdirectories
+*.nii.gz
+
+# Ignore outputs, results directories and all its contents (e.g., .png, .nii.gz files) 
+tb_logs_dce_punet_2309/
+results_3output_240830_align/
+results_3output_240830_align_1_try1_confirm/
+tb_logs_dsc/patch3d_lightning_unet/version_1/
+231101_figs_show/
