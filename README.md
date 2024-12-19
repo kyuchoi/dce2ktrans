@@ -1,5 +1,5 @@
 # dce2ktrans
-This is an official code for "Deep Learning Enhances the Reliability of Dynamic Contrast-Enhanced MRI in Diffuse Gliomas: Bypassing Post-processing and Providing Uncertainty Maps"
+This is an official code for "Deep Learning Enhances the Reliability of Dynamic Contrast-Enhanced MRI in Diffuse Gliomas: Bypassing Post-processing and Providing Uncertainty Maps", published in _European Radiology_.
 
 ## Summary
 A spatiotemporal deep learning model can improve the reliability of DCE-MRI by bypassing the estimation of the AIF and providing uncertainty maps, without diagnostic performance in diffuse glioma grading.
